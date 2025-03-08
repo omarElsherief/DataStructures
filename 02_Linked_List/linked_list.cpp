@@ -68,3 +68,45 @@ bool Linkedlist::isfound(int val)
     }
     return false;
 }
+
+void Linkedlist::insertBefore(int val, int newv)
+{
+    Node *temp = head;
+    Node *newnode = new Node(newv);
+    while (temp->next != NULL && temp->next->data != val)
+    {
+        temp = temp->next;
+    }
+    if (temp->next == NULL)
+    {
+        cout << "Value not found" << endl;
+    }
+    else
+    {
+        newnode->next = temp->next;
+        temp->next = newnode;
+    }
+}
+
+void Linkedlist::append(int newv)
+{
+    Node *newnode = new Node(newv);
+    if (isEmpty())
+    {
+        newnode->next = NULL;
+        head = newnode;
+    }
+    else
+    {
+        Node *temp = head;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = newnode;
+    }
+}
+
+void Linkedlist::deleteNode(int val)
+{
+}

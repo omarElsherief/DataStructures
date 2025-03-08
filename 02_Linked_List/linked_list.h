@@ -24,6 +24,9 @@ public:
     void display();
     int count();
     bool isfound(int val);
+    void insertBefore(int val, int newv);
+    void append(int newv);
+    void deleteNode(int val);
 };
 
 #endif

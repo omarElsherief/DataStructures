@@ -32,6 +32,14 @@ int main()
         cout << "Element found" << endl;
     else
         cout << "Element not found" << endl;
+    cout << "Enter the value to be inserted before: " << endl;
+    int val3;
+    cin >> val3;
+    cout << "Enter the value to be inserted: " << endl;
+    int val4;
+    cin >> val4;
+    lst.insertBefore(val3, val4);
+    lst.display();
 
     return 0;
 }
