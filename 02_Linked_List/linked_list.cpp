@@ -110,3 +110,19 @@ void Linkedlist::append(int newv)
 void Linkedlist::deleteNode(int val)
 {
 }
+
+void Linkedlist::reverse()
+{
+    Node *prev, *next, *cur;
+    prev = NULL;
+    cur = head;
+    next = cur->next;
+    while (cur != NULL)
+    {
+        next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+    }
+    head = prev;
+}

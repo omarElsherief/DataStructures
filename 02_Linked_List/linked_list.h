@@ -27,6 +27,7 @@ public:
     void insertBefore(int val, int newv);
     void append(int newv);
     void deleteNode(int val);
+    void reverse();
 };
 
 #endif
