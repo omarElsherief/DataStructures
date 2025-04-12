@@ -22,4 +22,10 @@ public:
     int Top();
     void display();
     bool isEmpty();
+    ~Stack();
+    // sheet
+    int Bottom();
+    int Size();
+    Stack Copy();
+    void Delete();
 };

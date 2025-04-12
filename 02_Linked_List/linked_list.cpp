@@ -20,6 +20,7 @@ bool Linkedlist::isEmpty()
 
 void Linkedlist::insertFirt(int newv)
 {
+    mySize++;
     Node *newnode = new Node(newv);
     if (isEmpty())
     {
@@ -88,27 +89,28 @@ void Linkedlist::insertBefore(int val, int newv)
     }
 }
 
-void Linkedlist::append(int newv)
+void Linkedlist::insert(int newv, int index)
 {
-    Node *newnode = new Node(newv);
-    if (isEmpty())
+    if (index < 0 || index > this->mySize)
     {
-        newnode->next = NULL;
-        head = newnode;
+        cerr << "Illegal location to insert -- " << index << endl;
+        return;
     }
-    else
+    mySize++;
+    Node *newN = new Node(newv);
+    if (index == 0)
     {
-        Node *temp = head;
-        while (temp->next != NULL)
-        {
-            temp = temp->next;
-        }
-        temp->next = newnode;
+        newN->next = head;
+        head = newN;
+        return;
     }
-}
-
-void Linkedlist::deleteNode(int val)
-{
+    Node *temp = head;
+    for (int i = 0; i < index - 2; i++)
+    {
+        temp = temp->next;
+    }
+    newN->next = temp->next;
+    temp->next = newN;
 }
 
 void Linkedlist::reverse()
@@ -125,4 +127,19 @@ void Linkedlist::reverse()
         cur = next;
     }
     head = prev;
+}
+
+void Linkedlist::Destroy()
+{
+    while (head)
+    {
+        Node *temp = head;
+        head = head->next;
+        delete temp;
+    }
+}
+
+Linkedlist::~Linkedlist()
+{
+    Destroy();
 }

@@ -54,10 +54,77 @@ void Stack::display()
     {
         cout << "STack is empty \n";
     }
+    cout << "Items in the stack [ ";
     while (temp != NULL)
     {
         cout << temp->data << " ";
         temp = temp->next;
     }
-    cout << "\n";
+    cout << "]\n";
+}
+
+// sheet stuff
+
+int Stack::Bottom()
+{
+    if (isEmpty())
+        return -1;
+    Node *temp = top;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+    return temp->data;
+}
+
+int Stack::Size()
+{
+    int size = 0;
+    if (isEmpty())
+        return 0;
+    size++;
+    Node *temp = top;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+        size++;
+    }
+    return size;
+}
+
+Stack Stack::Copy()
+{
+    Stack st;
+    int size = Size();
+    int arr[size];
+    int index = 0;
+    if (isEmpty())
+        return st;
+    Node *temp = top;
+    arr[index++] = temp->data;
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+        arr[index++] = temp->data;
+    }
+    for (int i = size - 1; i >= 0; i--)
+    {
+        st.push(arr[i]);
+    }
+    return st;
+}
+
+void Stack::Delete()
+{
+    while (top)
+    {
+        Node *temp = top;
+        top = top->next;
+        delete temp;
+    }
+}
+
+Stack::~Stack()
+{
+    Delete();
 }

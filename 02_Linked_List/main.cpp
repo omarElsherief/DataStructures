@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "linked_list.h"
+#include "linked_list.cpp"
 using namespace std;
 
 int main()
@@ -39,15 +39,13 @@ int main()
     // int val4;
     // cin >> val4;
     // lst.insertBefore(val3, val4);
-    for (size_t i = 0; i < 10; i++)
+    for (int i = 1; i < 6; i++)
     {
-        int val;
-        cin >> val;
-        lst.insertFirt(val);
+        lst.insertFirt(i);
     }
 
     lst.display();
-    lst.reverse();
+    lst.insert(3, 1);
     lst.display();
 
     return 0;

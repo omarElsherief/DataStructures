@@ -15,6 +15,7 @@ class Linkedlist
 {
 private:
     Node *head;
+    int mySize;
 
 public:
     Linkedlist();
@@ -24,7 +25,9 @@ public:
     int count();
     bool isfound(int val);
     void insertBefore(int val, int newv);
-    void append(int newv);
-    void deleteNode(int val);
+    void insert(int newv, int index);
     void reverse();
+    ~Linkedlist();
+    // sheet
+    void Destroy();
 };
